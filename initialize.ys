@@ -1,0 +1,7 @@
+.pos 0
+Init:
+    irmovl Stack, %ebp
+    irmovl Stack, %esp
+    
+.pos 0x110
+Stack:
