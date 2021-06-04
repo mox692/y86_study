@@ -1,0 +1,37 @@
+main:   
+  irmovq cafe, %rsi
+  irmovq face, %rdi
+  irmovq incre, %r8
+  
+  mrmovq (%rsi), %rsi
+  mrmovq (%rdi), %rdi
+  mrmovq (%r8), %r8
+  
+  
+  
+try:
+  addq %r8, %rsi
+  rrmovq %rsi, %r9
+  
+  subq %r9, %rdi #si - di
+  
+  je true
+  irmovq face, %rdi
+  mrmovq (%rdi), %rdi
+  addq %rsi, %rax
+  jmp try
+
+true:
+  halt
+
+done:
+  halt
+
+.pos 0x200
+face:
+  .quad 0x0000000b
+cafe:
+  .quad 0x00000000
+incre:
+  .quad 0x00000001
+  
