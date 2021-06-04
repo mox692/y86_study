@@ -8,4 +8,3 @@ Init:
     rrmovl %ebx, %ebp
 .pos 0x100
 Stack:
-    
