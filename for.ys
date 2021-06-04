@@ -1,13 +1,11 @@
 main:   
-  irmovq cafe, %rsi
-  irmovq face, %rdi
+  irmovq max, %rdi
+  irmovq initial, %rsi
   irmovq incre, %r8
   
   mrmovq (%rsi), %rsi
   mrmovq (%rdi), %rdi
   mrmovq (%r8), %r8
-  
-  
   
 try:
   addq %r8, %rsi
@@ -16,7 +14,7 @@ try:
   subq %r9, %rdi #si - di
   
   je true
-  irmovq face, %rdi
+  irmovq max, %rdi
   mrmovq (%rdi), %rdi
   addq %rsi, %rax
   jmp try
@@ -28,9 +26,9 @@ done:
   halt
 
 .pos 0x200
-face:
+max:
   .quad 0x0000000b
-cafe:
+initial:
   .quad 0x00000000
 incre:
   .quad 0x00000001
