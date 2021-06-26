@@ -1,0 +1,14 @@
+# temprsiの値の正負を判断して、正の数だったら値をraxに格納、負の数だったらそのままhaltするprogram
+
+main:
+    irmovq temprsi, %rsi
+    mrmovq (%rsi), %rsi
+    xorq %rbx, %rbx
+    subq %rsi, %rbx 
+    jg done
+    rrmovq %rsi, %rax
+done:
+    halt
+.pos 200
+temprsi:
+    .quad 1111
